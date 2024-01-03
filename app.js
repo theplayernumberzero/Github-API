@@ -6,6 +6,7 @@ const clearLastUsers = document.getElementById("clear-last-users");
 const lastUsers = document.getElementById("last-users");
 
 const github = new Github();
+const ui = new UI();
 
 eventListeners();
 
@@ -30,12 +31,13 @@ function getData(e){
                 console.log("Hata");
             }
             else{
-                console.log(response.user);
+                ui.showUserInfo(response.user);
             }
         })
         .catch(err => console.log(err));
     }
 
+    ui.clearInput();    //Input temizleme
     e.preventDefault(); //sayfa yenilenmesini engellemek için
 }
 
