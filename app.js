@@ -28,13 +28,13 @@ function getData(e){
         .then(response => {
             if(response.user.message === "Not Found"){
                 //Hata mesaji
-                console.log("Hata");
+                ui.showError("Kullanici bulunamadi");
             }
             else{
                 ui.showUserInfo(response.user);
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => ui.showError(err));
     }
 
     ui.clearInput();    //Input temizleme
