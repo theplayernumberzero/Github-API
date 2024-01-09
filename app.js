@@ -31,6 +31,9 @@ function getData(e){
                 ui.showError("Kullanici bulunamadi");
             }
             else{
+                ui.addSearchedUserToUI(username);
+                Storage.addSearchedUserToStorage(username);
+
                 ui.showUserInfo(response.user);
                 ui.showRepoInfo(response.repo);
             }
@@ -48,4 +51,11 @@ function clearAllSearched(){
 
 function getAllSearched(){
     //Arananları storagedan al ve UI a ekle
+    let users = Storage.getSearchedUsersFromStorage();
+
+    let result = "";
+    users.forEach(user => {
+        result += `<li class="list-group-item">${user}</li>`
+    })
+    lastUsers.innerHTML = result;
 }
