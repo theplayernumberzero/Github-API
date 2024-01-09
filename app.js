@@ -47,6 +47,11 @@ function getData(e){
 
 function clearAllSearched(){
     //Tüm arananları temizle
+    if(confirm("Emin misiniz ?")){
+        //Silme işlemi
+        Storage.clearAllSearchedUsersFromStrorage();    //Storagedan temizleme
+        ui.clearAllSearchedFomUI();
+    }
 }
 
 function getAllSearched(){
